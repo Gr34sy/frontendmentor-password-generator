@@ -31,13 +31,23 @@ export function Settings() {
 
       <div className="settings__strength-indicator">
         <div>Strength</div>
-        <div></div>
+
+        <div>
+          LEVEL
+          <span className="level-span" />
+
+          <span className="level-span" />
+
+          <span className="level-span" />
+
+          <span className="level-span" />
+        </div>
       </div>
 
       <button className="settings__generate-btn">
         Generate
 
-          <ArrowRightIcon />
+        <ArrowRightIcon />
       </button>
     </div>
   );

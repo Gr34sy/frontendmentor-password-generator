@@ -108,6 +108,19 @@ a {
   color: var(--grey);
 
   background-color: var(--black);
+
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+.settings__strength-indicator > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 1.1rem;
+  color: var(--white);
 }
 
 /* Password View Styling */
@@ -132,6 +145,30 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Level Spans Styling */
+.level-span{
+  display: block;
+  width: 10px;
+  height: 25px;
+  border: 2px solid var(--white);
+}
+.level-span.very-weak-level {
+  border-color: var(--red);
+  background-color: var(--red);
+}
+.level-span.weak-level {
+  border-color: var(--orange);
+  background-color: var(--orange);
+}
+.level-span.weak-level {
+  border-color: var(--yellow);
+  background-color: var(--yellow);
+}
+.level-span.strong-level {
+  border-color: var(--var(--neon-green));
+  background-color: var(--var(--neon-green));
 }
 
 /* Button Styling */
