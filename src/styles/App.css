@@ -1,27 +1,41 @@
-:root {
-  --white: #E6E5EA;
-  --neon-green: #A4FFAF;
-  --yellow: #F8CD65;
-  --orange: #FB7C58;
-  --red: #F64A4A;
-  --grey: #817D92;
-  --dark-grey: #24232C;
-  --black: #18171F;
+@font-face {
+  font-family: "JetBrains";
+  src: url("../assets/fonts/JetBrainsMono-VariableFont_wght.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "JetBrains";
+  src: url("../assets/fonts/JetBrainsMono-Italic-VariableFont_wght.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
 
+:root {
+  --white: #e6e5ea;
+  --neon-green: #a4ffaf;
+  --yellow: #f8cd65;
+  --orange: #fb7c58;
+  --red: #f64a4a;
+  --grey: #817d92;
+  --dark-grey: #24232c;
+  --black: #18171f;
+
+  font-family: "JetBrains", sans-serif;
   font-size: 16px;
   color: var(--white);
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--grey);
 }
 
-.bg-dark-grey{
+.bg-dark-grey {
   background-color: var(--dark-grey);
 }
 
-.App{
+.App {
   min-height: 100dvh;
   background-color: var(--black);
 
@@ -32,7 +46,7 @@ a{
   align-items: start;
 }
 
-.app__wrapper{
+.app__wrapper {
   --max-width: 650px;
 
   width: min(100% - 2rem, var(--max-width, 400));
@@ -42,8 +56,11 @@ a{
   gap: 1rem;
 }
 
-.app__title{
+.app__title {
   text-align: center;
+  font-size: 1.4rem;
+  color: var(--grey);
+
   margin-bottom: 0.4rem;
 }
 

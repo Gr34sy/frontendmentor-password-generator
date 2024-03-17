@@ -1,3 +1,5 @@
+import { PasswordView } from "./components/PasswordView";
+import { Settings } from "./components/Settings";
 import "./styles/App.css";
 
 function App() {
@@ -6,35 +8,9 @@ function App() {
       <main className="app__wrapper">
         <h1 className="app__title">Password Generator</h1>
 
-        <div className="password-view bg-dark-grey">P4$5W0rD!</div>
+        <PasswordView defaultText="P4$5W0rD!" />
 
-        <div className="settings bg-dark-grey">
-          <p>Character Length</p>
-          <ul>
-            <li className="checkmark" data-name="uppercase">
-              Include Uppercase Letters
-            </li>
-
-            <li className="checkmark" data-name="lowercase">
-              Include Lowercase Letters
-            </li>
-
-            <li className="checkmark" data-name="numbers">
-              Include Numbers
-            </li>
-
-            <li className="checkmark" data-name="symbols">
-              Include Symbols Strength
-            </li>
-          </ul>
-
-          <div className="settings__strength-indicator">
-            <div>Strength</div>
-            <div></div>
-          </div>
-
-          <button className="settings__generate-btn">Generate</button>
-        </div>
+        <Settings />
       </main>
 
       <footer className="app__footer bg-dark-grey">
