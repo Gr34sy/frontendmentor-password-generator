@@ -137,9 +137,9 @@ a {
 /* Button Styling */
 .settings__generate-btn{
   padding: 1rem;
-  border: none;
+  border: 2px solid transparent;
   background-color: var(--neon-green);
-  cursor: pointer;
+  transition: .4s;
 
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -149,8 +149,19 @@ a {
   justify-content: center;
   align-items: center;
 }
-.settings__generate-btn::after{
-  content: url('../assets/images/icon-arrow-right.svg');
+.settings__generate-btn path{
+  transition: .4s;
+}
+
+.settings__generate-btn:hover{
+  color: var(--neon-green);
+  background-color: var(--dark-grey);
+  border-color: var(--neon-green);
+  cursor: pointer;
+}
+
+.settings__generate-btn:hover path{
+  fill: var(--neon-green); 
 }
 
 /* Footer Styling */

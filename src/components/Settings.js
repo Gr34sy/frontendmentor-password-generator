@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from "./ArrowRightIcon";
 import { Checkmark } from "./Checkmark";
 
 export function Settings() {
@@ -5,9 +6,7 @@ export function Settings() {
     <div className="settings bg-dark-grey">
       <header className="settings__header">
         <p className="settings__header_title">Character Length</p>
-        <p className="settings__header_number">
-          1
-        </p>
+        <p className="settings__header_number">0</p>
       </header>
 
       <div className="settings__slider"></div>
@@ -35,7 +34,11 @@ export function Settings() {
         <div></div>
       </div>
 
-      <button className="settings__generate-btn">Generate</button>
+      <button className="settings__generate-btn">
+        Generate
+
+          <ArrowRightIcon />
+      </button>
     </div>
   );
 }
