@@ -1,31 +1,33 @@
-export function Settings(){
-    return (
-        <div className="settings bg-dark-grey">
-          <p>Character Length</p>
-          <ul>
-            <li className="checkmark" data-name="uppercase">
-              Include Uppercase Letters
-            </li>
+import { Checkmark } from "./Checkmark";
 
-            <li className="checkmark" data-name="lowercase">
-              Include Lowercase Letters
-            </li>
+export function Settings() {
+  return (
+    <div className="settings bg-dark-grey">
+      <p>Character Length</p>
+      <ul>
+        <li className="checkmark" data-name="uppercase">
+          <Checkmark checked>Include Uppercase Letters</Checkmark>
+        </li>
 
-            <li className="checkmark" data-name="numbers">
-              Include Numbers
-            </li>
+        <li className="checkmark" data-name="lowercase">
+          <Checkmark>Include Lowercase Letters</Checkmark>
+        </li>
 
-            <li className="checkmark" data-name="symbols">
-              Include Symbols Strength
-            </li>
-          </ul>
+        <li className="checkmark" data-name="numbers">
+          <Checkmark>Include Numbers</Checkmark>
+        </li>
 
-          <div className="settings__strength-indicator">
-            <div>Strength</div>
-            <div></div>
-          </div>
+        <li className="checkmark" data-name="symbols">
+          <Checkmark>Include Symbols Strength</Checkmark>
+        </li>
+      </ul>
 
-          <button className="settings__generate-btn">Generate</button>
-        </div>
-    );
+      <div className="settings__strength-indicator">
+        <div>Strength</div>
+        <div></div>
+      </div>
+
+      <button className="settings__generate-btn">Generate</button>
+    </div>
+  );
 }

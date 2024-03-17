@@ -24,8 +24,12 @@
   font-family: "JetBrains", sans-serif;
   font-size: 16px;
   color: var(--white);
+
+  --spacing-block: 1rem;
+  --spacing-inline: 1.3rem;
 }
 
+/* Elements and utility classes */
 a {
   text-decoration: none;
   color: var(--grey);
@@ -35,6 +39,7 @@ a {
   background-color: var(--dark-grey);
 }
 
+/* App Styling */
 .App {
   min-height: 100dvh;
   background-color: var(--black);
@@ -64,6 +69,31 @@ a {
   margin-bottom: 0.4rem;
 }
 
+/* Password View Styling */
+.password-view{
+  font-size: 1.3rem;
+  padding: var(--spacing-block) var(--spacing-inline);
+}
+
+/* Checkmark Styling */
+.checkmark{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+.checkmark__square{
+  width: 20px;
+  height: 20px;
+
+  background-color: var(--neon-green);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer Styling */
 .app__footer {
   text-align: center;
   padding: 1rem;
