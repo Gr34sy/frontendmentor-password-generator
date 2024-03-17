@@ -3,8 +3,16 @@ import { Checkmark } from "./Checkmark";
 export function Settings() {
   return (
     <div className="settings bg-dark-grey">
-      <p>Character Length</p>
-      <ul>
+      <header className="settings__header">
+        <p className="settings__header_title">Character Length</p>
+        <p className="settings__header_number">
+          1
+        </p>
+      </header>
+
+      <div className="settings__slider"></div>
+
+      <ul className="settings__checkmarks">
         <li className="checkmark" data-name="uppercase">
           <Checkmark checked>Include Uppercase Letters</Checkmark>
         </li>
