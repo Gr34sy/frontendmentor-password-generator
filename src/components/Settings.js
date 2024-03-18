@@ -1,7 +1,29 @@
+
 import { ArrowRightIcon } from "./ArrowRightIcon";
 import { Checkmark } from "./Checkmark";
 
+// Hooks
+import { useState } from "react";
+
 export function Settings() {
+  const INITIAL_SETTINGS = {
+    uppercase: false,
+    lowercase: false,
+    numbers: false,
+    symbols: false,
+    length: 0,
+  };
+  const [settings, setSettings ] = useState(INITIAL_SETTINGS);
+
+  function handleSettingsChange(name){
+    setSettings((prevSettings) => {
+      return ({
+        ...prevSettings,
+        [name]: !prevSettings[name],
+      })
+    })
+  }
+
   return (
     <div className="settings bg-dark-grey">
       <header className="settings__header">
@@ -12,20 +34,20 @@ export function Settings() {
       <div className="settings__slider"></div>
 
       <ul className="settings__checkmarks">
-        <li className="checkmark" data-name="uppercase">
-          <Checkmark checked>Include Uppercase Letters</Checkmark>
+        <li className="checkmark" onClick={ () => handleSettingsChange('uppercase')}>
+          <Checkmark checked={settings.uppercase}>Include Uppercase Letters</Checkmark>
         </li>
 
-        <li className="checkmark" data-name="lowercase">
-          <Checkmark>Include Lowercase Letters</Checkmark>
+        <li className="checkmark"  onClick={ () => handleSettingsChange('lowercase')}>
+          <Checkmark checked={settings.lowercase}>Include Lowercase Letters</Checkmark>
         </li>
 
-        <li className="checkmark" data-name="numbers">
-          <Checkmark>Include Numbers</Checkmark>
+        <li className="checkmark" onClick={ () => handleSettingsChange('numbers')}>
+          <Checkmark checked={settings.numbers}>Include Numbers</Checkmark>
         </li>
 
-        <li className="checkmark" data-name="symbols">
-          <Checkmark>Include Symbols Strength</Checkmark>
+        <li className="checkmark"  onClick={ () => handleSettingsChange('symbols')}>
+          <Checkmark checked={settings.symbols}>Include Symbols Strength</Checkmark>
         </li>
       </ul>
 
