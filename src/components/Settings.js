@@ -1,12 +1,16 @@
 
+// Components
 import { ArrowRightIcon } from "./ArrowRightIcon";
 import { Checkmark } from "./Checkmark";
+
+// Utility
+import passwordGenerator from "../utils/passwordGenerator";
 
 // Hooks
 import { useState } from "react";
 import { useEffect } from "react";
 
-export function Settings() {
+export function Settings({btnAction}) {
   const INITIAL_SETTINGS = {
     uppercase: false,
     lowercase: false,
@@ -27,6 +31,15 @@ export function Settings() {
         [name]: !prevSettings[name],
       })
     })
+  }
+
+  function handleClick(e){
+    e.preventDefault();
+
+    if(typeof btnAction === 'function'){
+      const password = passwordGenerator();
+      btnAction(password);
+    }
   }
 
   return (
@@ -52,7 +65,7 @@ export function Settings() {
         </li>
 
         <li  onClick={ () => handleSettingsChange('symbols')}>
-          <Checkmark checked={settings.symbols}>Include Symbols Strength</Checkmark>
+          <Checkmark checked={settings.symbols}>Include Symbols</Checkmark>
         </li>
       </ul>
 
@@ -71,10 +84,7 @@ export function Settings() {
         </div>
       </div>
 
-      <button className="settings__generate-btn" onClick={() => setSettings((prevSettings) => ({
-        ...prevSettings,
-        length: prevSettings.length++,
-      }))}>
+      <button className="settings__generate-btn" onClick={handleClick}>
         Generate
 
         <ArrowRightIcon />

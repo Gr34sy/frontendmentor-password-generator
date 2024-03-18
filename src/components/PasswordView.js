@@ -1,6 +1,6 @@
-export function PasswordView({defaultText}) {
+export function PasswordView({password}) {
   return (
     <div className="password-view bg-dark-grey">
-        {defaultText}
+        {password}
     </div>);
 }
