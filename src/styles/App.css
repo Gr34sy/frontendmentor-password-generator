@@ -99,6 +99,10 @@ a {
 .settings__checkmarks{
   display: grid;
   gap: var(--spacing-block) var(--spacing-inline);
+
+  li:hover{
+    cursor: pointer;
+  }
 }
 .settings__strength-indicator{
   padding: 1.2rem;
