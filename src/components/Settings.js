@@ -1,6 +1,6 @@
 
 // Components
-import { ArrowRightIcon } from "./ArrowRightIcon";
+import {ArrowRightIcon} from "./icons/ArrowRightIcon";
 import { Checkmark } from "./Checkmark";
 
 // Utility

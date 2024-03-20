@@ -25,8 +25,8 @@
   font-size: 16px;
   color: var(--white);
 
-  --spacing-block: 1.3rem;
-  --spacing-inline: 1.5rem;
+  --spacing-block: 1rem;
+  --spacing-inline: 1.2rem;
 }
 
 /* Elements and utility classes */
@@ -114,9 +114,8 @@ a {
   background-color: var(--black);
 
   display: flex;
-  gap: 5px;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
 }
 .settings__strength-indicator > div:last-child {
   display: flex;
@@ -131,6 +130,28 @@ a {
 .password-view{
   font-size: 1.3rem;
   padding: var(--spacing-block) var(--spacing-inline);
+
+  display: grid;
+  align-items: center;
+  gap: 8px;
+  grid-template-columns: 1fr auto auto;
+
+  span{
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--neon-green);
+  }
+
+  svg:hover{
+    cursor: pointer;
+    
+    path{
+      fill: var(--white);
+    }
+  }
+}
+.password-view--empty{
+  color: var(--grey);
 }
 
 /* Checkmark Styling */
@@ -216,4 +237,17 @@ a {
   text-align: center;
   padding: 1rem;
   color: var(--white);
+}
+
+@media (min-width: 375px){
+  :root{
+    --spacing-block: 1.3rem;
+    --spacing-inline: 1.5rem;
+  }
+
+  .settings__strength-indicator{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

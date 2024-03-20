@@ -16,7 +16,7 @@ function App() {
       <main className="app__wrapper">
         <h1 className="app__title">Password Generator</h1>
 
-        <PasswordView password={password || "P4$5W0rD!"} />
+        <PasswordView password={password} />
 
         <Settings btnAction={setPassword}/>
       </main>
