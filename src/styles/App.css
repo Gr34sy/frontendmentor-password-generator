@@ -141,38 +141,44 @@ a {
   column-gap: 0.6rem;
 }
 .checkmark__square{
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
 
-  background-color: var(--neon-green);
+  border: 1px solid var(--white);
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.checkmark__square.checked{
+  background-color: var(--neon-green);
+}
 
 /* Level Spans Styling */
-.level-span{
+.level-spans span{
   display: block;
   width: 10px;
   height: 25px;
   border: 2px solid var(--white);
 }
-.level-span.very-weak-level {
+.level-spans.too-weak span:first-of-type{
   border-color: var(--red);
   background-color: var(--red);
 }
-.level-span.weak-level {
+.level-spans.weak span:first-of-type, 
+.level-spans.weak span:nth-of-type(2){
   border-color: var(--orange);
   background-color: var(--orange);
 }
-.level-span.weak-level {
+.level-spans.medium span:first-of-type, 
+.level-spans.medium span:nth-of-type(2), 
+.level-spans.medium span:nth-of-type(3){
   border-color: var(--yellow);
   background-color: var(--yellow);
 }
-.level-span.strong-level {
-  border-color: var(--var(--neon-green));
-  background-color: var(--var(--neon-green));
+.level-spans.strong span{
+  border-color: var(--neon-green);
+  background-color: var(--neon-green);
 }
 
 /* Button Styling */

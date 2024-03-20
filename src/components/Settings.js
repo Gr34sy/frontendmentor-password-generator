@@ -5,10 +5,10 @@ import { Checkmark } from "./Checkmark";
 
 // Utility
 import passwordGenerator from "../utils/passwordGenerator";
+import getPasswordLevel from "../utils/getPasswordLevel";
 
 // Hooks
 import { useState } from "react";
-import { useEffect } from "react";
 
 export function Settings({btnAction}) {
   const INITIAL_SETTINGS = {
@@ -16,13 +16,10 @@ export function Settings({btnAction}) {
     lowercase: false,
     numbers: false,
     symbols: false,
-    length: 0,
+    length: 10,
   };
   const [settings, setSettings ] = useState(INITIAL_SETTINGS);
-
-  useEffect(() => {
-    console.log('Dupa');
-  },[settings.length])
+  const [passwordLevel, setPasswordLevel] = useState("");
 
   function handleSettingsChange(name){
     setSettings((prevSettings) => {
@@ -37,8 +34,12 @@ export function Settings({btnAction}) {
     e.preventDefault();
 
     if(typeof btnAction === 'function'){
-      const password = passwordGenerator();
-      btnAction(password);
+      const password = passwordGenerator(settings.uppercase, settings.lowercase, settings.numbers, settings.symbols, settings.length);
+
+      if(password){
+        btnAction(password);
+        setPasswordLevel(getPasswordLevel(password));
+      }
     }
   }
 
@@ -72,15 +73,15 @@ export function Settings({btnAction}) {
       <div className="settings__strength-indicator">
         <div>Strength</div>
 
-        <div>
-          LEVEL
-          <span className="level-span" />
+        <div className={"level-spans " + passwordLevel}>
+          {passwordLevel.replace("-" , " ") || "LEVEL"}
+          <span/>
 
-          <span className="level-span" />
+          <span/>
 
-          <span className="level-span" />
+          <span/>
 
-          <span className="level-span" />
+          <span/>
         </div>
       </div>
 

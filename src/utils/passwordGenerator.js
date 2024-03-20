@@ -1,13 +1,20 @@
-export default function passwordGenerator(){
+export default function passwordGenerator(uppercase, lowercase, numbers, symbols, length){
 
-    const chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const length = 12;
+    const includesUppercase = uppercase ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ" : "";
+    const includesLowercase = lowercase ? "abcdefghijklmnopqrstuvwxyz" : "";
+    const includesNumbers = numbers ? "0123456789" : "";
+    const includesSymbols = symbols ? "!@#$%^&*" : "";
+    const chars = includesNumbers + includesSymbols + includesLowercase + includesUppercase;
 
-    let password = [];
-    for(let i = 0; i < length; i++){
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        password.push(char)
+    if(chars.length === 0 || length <= 0){
+        return false;
     }
 
-    return password.join('');
+    let password = "";
+    for(let i = 0; i < length; i++){
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        password += char;
+    }
+
+    return password;
 }
