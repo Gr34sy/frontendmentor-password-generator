@@ -8,7 +8,7 @@ import passwordGenerator from "../utils/passwordGenerator";
 import getPasswordLevel from "../utils/getPasswordLevel";
 
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Settings({btnAction}) {
   const INITIAL_SETTINGS = {
@@ -16,16 +16,38 @@ export function Settings({btnAction}) {
     lowercase: false,
     numbers: false,
     symbols: false,
-    length: 10,
+    length: 0,
   };
   const [settings, setSettings ] = useState(INITIAL_SETTINGS);
   const [passwordLevel, setPasswordLevel] = useState("");
+
+  useEffect(() => {
+    const sliderEl = document.querySelector(".settings__slider");
+    const tempSliderValue = settings.length;
+    const neonGreen = "#a4ffaf";
+    const black = "#18171f";
+      
+    const progress = (tempSliderValue / sliderEl.max) * 100;
+     
+    sliderEl.style.background = `linear-gradient(to right, ${neonGreen} ${progress}%, ${black} ${progress}%)`;
+    
+    return () => {}
+  },[settings.length])
 
   function handleSettingsChange(name){
     setSettings((prevSettings) => {
       return ({
         ...prevSettings,
         [name]: !prevSettings[name],
+      })
+    })
+  }
+
+  function handleLengthChange(e){
+    setSettings((prevSettings) => {
+      return ({
+        ...prevSettings,
+        length: e.target.value,
       })
     })
   }
@@ -50,7 +72,7 @@ export function Settings({btnAction}) {
         <p className="settings__header_number">{settings.length}</p>
       </header>
 
-      <div className="settings__slider"></div>
+      <input type="range" value={settings.length} onChange={handleLengthChange} className="settings__slider" min="0" max="20"/>
 
       <ul className="settings__checkmarks">
         <li onClick={ () => handleSettingsChange('uppercase')}>
