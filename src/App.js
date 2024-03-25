@@ -23,7 +23,7 @@ function App() {
 
       <footer className="app__footer bg-dark-grey">
         FrontendMentor Challenge Coded By{" "}
-        <a href="https://heroic-quokka-3e69bf.netlify.app">Greasy.</a>
+        <a href="https://heroic-quokka-3e69bf.netlify.app" target="_blank" rel="noreferrer">Greasy.</a>
       </footer>
     </div>
   );
